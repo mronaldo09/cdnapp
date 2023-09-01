@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1 class="text-light mt-5">Upload File to CDN</h1>
+<div class="card mt-5">
+  <div class="card-header bg-dark">
+    <a href="/media-hub" class="btn btn-warning">Media Hub</a>
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-group mt-2">
+            <label class="label">Choose a file</label>
+            <div class="control">
+                <input class="form-control" type="file" name="file" @change="updateFile" accept="image/*, video/*, .pdf, .doc, .txt" required/>
+            </div>
+        </div>
+        <div class="form-group mt-2">
+          <div class="field">
+              <label class="label">Caption</label>
+              <div class="control">
+                  <input class="form-control" type="text" name="caption" v-model="caption" placeholder="Enter caption" max="200" required/>
+              </div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <button class="btn btn-primary" type="submit">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

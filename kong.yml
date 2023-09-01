@@ -1,0 +1,10 @@
+_format_version: "1.1"
+services:
+- name: flask-service
+  url: http://127.0.0.1:5000
+
+routes:
+- name: cdn-route
+  paths:
+  - /items_data
+  service: cdn-service
